@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>css-gradients</title>
+<link rel="stylesheet" href="shCoreDefault.css" />
+<style>
+	
+article {
+		margin: 4em 0;
+}
+
+.box {
+	width: 320px;
+	height: 240px;
+	padding: 10px;
+	border: 1px solid #eee;
+	font-size: 12px;
+}
+	
+
+#linear-g {
+		background: gray;
+		background: linear-gradient(
+			/*方向あるいは角度を指定（省略可）:下から上へ 例:to top right | 45deg　は右上へ 　初期値 to bottom = 180deg */
+			to top,
+			/*始点　16進、キーワード、rgbaなどで2つ以上の複数の色値を指定（省略不可）:glay（下）*/
+			gray 20%,
+			/*終点　white(上) 60% = 変更色の位置 */
+			white 60%
+			);
+}
+	#ex1 {
+		background: black;
+		background: linear-gradient(-135deg, #0ff 33%, #f0f 33%, #f0f 66%, #ff0 66%);
+}
+
+#radial-g {
+		background: gray;
+		background: radial-gradient(
+			/*形状（楕円または正円）、サイズ(領域に対する円の収めかた)、中心位置(単位またはキーワード)を指定*/
+   /*形状、サイズ、中心位置は省略可*/
+			ellipse,
+			/*始点（中心）初期位置は領域の中央*/
+			white,
+			/*終点*/
+			gray
+			);
+}
+
+#ex2 {
+  background: black;
+  background: radial-gradient(circle closest-side at 60px 60px, #0ff 33%, #f0f 33%, #f0f 66%, #ff0 66%);
+}
+	
+#syntax1 {
+	background-image: -webkit-linear-gradient(to top, gray, black);
+	background-image: -webkit-linear-gradient(to top, #f0f0f0, #dddddd);
+	background-image: linear-gradient(to top, gray, black);
+	background-image: linear-gradient(to top, #f0f0f0, #dddddd) /*勧告候補のOK記述*/;
+	background-image: linear-gradient( #f0f0f0, #dddddd) /*勧告候補のOK記述*/;
+	background-image: -webkit-linear-gradient(to top right, red, white, blue);
+	background-image: linear-gradient(to top, yellow, blue);
+}
+
+</style>
+<script type="text/javascript" src="shCore.js"></script>
+<script type="text/javascript" src="shBrushCss.js"></script>
+<script type="text/javascript" src="shBrushJScript.js"></script>
+<script type="text/javascript" src="shBrushXml.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+<body>
+<h1>グラデーション</h1>
+<article>
+<h2>線形グラデーション</h2>
+<div id="linear-g" class="box"></div>
+<pre class="source brush: css;" title="css">
+#linear-g {
+background: gray;
+background: linear-gradient(
+/*方向あるいは角度を指定（省略可）:下から上へ 例:to top right | 45deg　は右上へ 　初期値 to bottom = 180deg */
+to top,
+/*始点　2つ以上の複数の色値を指定（省略不可）:glay（下）*/
+gray 20%,
+/*終点　white(上) 60% = 変更色の位置 */
+white 60%
+);
+}
+</pre>
+<p>グラデーションが無効になった場合の色を指定しておくことが望ましい</p>
+
+<h3>example 1</h3>	
+<div id="ex1" class="box"></div>
+<pre class="source brush: css;" title="css">
+#ex1 {
+background: black;
+background: linear-gradient(-135deg, #0ff 33%, #f0f 33%, #f0f 66%, #ff0 66%);
+}
+</pre>
+</article>
+	
+<article>
+<h2>円形グラデーション</h2>
+<div id="radial-g" class="box"></div>
+<pre class="source brush: css;" title="css">
+#radial-g {
+background: gray;
+background: radial-gradient(
+/*形状（楕円または正円）、サイズ(領域に対する円の収めかた)、中心位置(単位またはキーワード)を指定*/
+/*形状、サイズ、中心位置は省略可*/
+ellipse(楕円),
+/*始点（中心）初期位置は領域の中央*/
+white,
+/*終点*/
+gray
+);
+}
+</pre>
+
+<h3>example 2</h3>	
+<div id="ex2" class="box"></div>
+<pre class="source brush: css;" title="css">
+#ex2 {
+background: black;
+background: radial-gradient(circle closest-side at 60px 60px, #0ff 33%, #f0f 33%, #f0f 66%, #ff0 66%);
+}
+</pre>
+</article>
+</body>
+</html>
